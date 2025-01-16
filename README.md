@@ -4,7 +4,7 @@ This project automates the downloading, processing, and archiving of dayahead an
 
 ## As of:
 
-- Last updated: **January 16, 2025, 15:000 Berlin time**
+- Last updated: **January 16, 2025, 14:57 Berlin time**
 
 ## Features
 
