@@ -84,8 +84,8 @@ intraday_market_areas = {
 Ensure that all prerequisites are met and the configuration is updated.
 
 Execute the script:  
-python main_script.py
-
+python power_data_main.py  
+  
 The script will:  
 1. Download dayahead auction data.  
 2. Process and archive the data.  
