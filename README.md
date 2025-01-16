@@ -4,7 +4,7 @@ This project automates the downloading, processing, and archiving of dayahead an
 
 ## As of:
 
-- Last updated: **January 16, 2025, 12:12 Berlin time**
+- Last updated: **January 16, 2025, 15:000 Berlin time**
 
 ## Features
 
@@ -22,103 +22,98 @@ This project automates the downloading, processing, and archiving of dayahead an
 This project requires **Python 3.12 or higher**.
 
 ### Libraries and Dependencies
-The required Python packages are listed in "requirements.txt". Install them using: """bash pip install -r requirements.txt"""
+The required Python packages are listed in "requirements.txt". Install them using the bash command:  
+"""pip install -r requirements.txt"""
 
 ### ChromeDriver
-The script uses Selenium WebDriver with ChromeDriver. Download the appropriate version of ChromeDriver for your system from the official website and update the path in the script:
+The script uses Selenium WebDriver with ChromeDriver. Download the appropriate version of ChromeDriver for your system from the official website and update the path in the script:  
 chrome_driver_filepath = r"<path_to_chromedriver>\chromedriver.exe"
 
 ---
 
 ## Directory Structure
-project-root/
-│
-├── epex_auction_dayahead/
-│   ├── epex_auction_dayahead_tracking.csv
-│   ├── epex_auction_dayahead_hourly_data_archive.xlsx
-│   └── epex_auction_dayahead_basepeak_data_archive.xlsx
-│
-├── epex_auction_intraday/
-│   ├── epex_auction_intraday_tracking.csv
-│   ├── epex_auction_intraday_hourly_data_archive.xlsx
-│   └── epex_auction_intraday_basepeak_data_archive.xlsx
-│
-├── power_data_architecture.py
-├── power_data_utils.py
-└── main_script.py
+project-root/  
+│  
+├── epex_auction_dayahead/  
+│   ├── epex_auction_dayahead_tracking.csv  
+│   ├── epex_auction_dayahead_hourly_data_archive.xlsx  
+│   └── epex_auction_dayahead_basepeak_data_archive.xlsx  
+│  
+├── epex_auction_intraday/  
+│   ├── epex_auction_intraday_tracking.csv  
+│   ├── epex_auction_intraday_hourly_data_archive.xlsx  
+│   └── epex_auction_intraday_basepeak_data_archive.xlsx  
+│  
+├── power_data_architecture.py  
+├── power_data_utils.py  
+└── main_script.py  
 
 ---
 
 ## Configuration
 
 ### General Settings
-
 Update the script with your local paths:
 
 - **Chromedriver Path**: Replace `<path_to_chromedriver>` with the location of your ChromeDriver executable.
 - **Project Directory**: Replace `<path_to_project_directory>` with the root directory where you want to store tracking and archive files.
 
-Example:
-chrome_driver_filepath = r"C:/Users/YourName/Downloads/chromedriver.exe"
+Example:  
+chrome_driver_filepath = r"C:/Users/YourName/Downloads/chromedriver.exe"  
 root = r"C:/Users/YourName/Projects/PowerDataDownloader/"
 
 ### Backoff Time
-Backoff Time: Adjust the backoff time (in seconds) for downloads:
-
+Backoff Time: Adjust the backoff time (in seconds) for downloads:  
 backoff_time = 3
 
 ### Market Areas
 The script supports multiple market areas for both dayahead and intraday auctions. These areas and modalities are defined in dictionaries:
 
-Dayahead Market Areas:
-dayahead_market_areas = {
-    "AT": ["SDAC"], "BE": ["SDAC"], ... "GB_1": ["GB DAA 1 (60')"], "GB_2": ["GB DAA 2 (30')"]
-}
+Dayahead Market Areas:  
+dayahead_market_areas = {  
+    "AT": ["SDAC"], "BE": ["SDAC"], ... "GB_1": ["GB DAA 1 (60')"], "GB_2": ["GB DAA 2 (30')"]  
+    }
 
-Intraday Market Areas:
-intraday_market_areas = {
-    "AT": ["SIDC IDA1", "SIDC IDA2", ...], "GB": ["GB-IDA1", "GB-IDA2"]
-}
+Intraday Market Areas:  
+intraday_market_areas = {  
+    "AT": ["SIDC IDA1", "SIDC IDA2", ...], "GB": ["GB-IDA1", "GB-IDA2"]  
+    }
 
 ---
 
 ## Usage
 
 ### Running the Script
-
 Ensure that all prerequisites are met and the configuration is updated.
 
-Execute the script:
+Execute the script:  
 python main_script.py
 
-The script will:
-1. Download dayahead auction data.
-2. Process and archive the data.
-3. Download intraday auction data.
-4. Process and archive the data.
+The script will:  
+1. Download dayahead auction data.  
+2. Process and archive the data.  
+3. Download intraday auction data.  
+4. Process and archive the data.  
 
-Outputs
-Tracking Files: Updated .csv files tracking the status of downloads.
-Archived Data: Updated .xlsx files containing processed data.
+Outputs:  
+Tracking Files: Updated .csv files tracking the status of downloads.  
+Archived Data: Updated .xlsx files containing processed data.  
 
-Logs
+Logs:  
 Current Market Area, Auction, success information as well as execution times for each process are displayed in the console.
 
 ---
 
 ## Dependencies
+-pandas (2.2.2 or later)  
+-beautifulsoup4 (4.12.3 or later)  
+-selenium (4.27.1 or later)  
 
--pandas (1.3.5 or later)
--beautifulsoup4 (4.10.0 or later)
--selenium (4.1.0 or later)
-
-Install dependencies with:
-
+Install dependencies with:  
 pip install -r requirements.txt
 
 ---
 
 ## Additional Notes
-
--Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM, and 8 PM Berlin time adds redundancy in case of network issues.
--Data Archiving: The project automatically detects previously downloaded data to prevent duplication in archives.
+-Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM, and 8 PM Berlin time adds redundancy in case of network issues.  
+-Data Archiving: The project automatically detects previously downloaded data to prevent duplication in archives.  
