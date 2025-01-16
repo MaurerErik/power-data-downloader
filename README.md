@@ -3,8 +3,7 @@
 This project automates the downloading, processing, and archiving of dayahead and intraday power market data for various market areas from the EPEX (European Power Exchange, https://www.epexspot.com/en), the platform where power trading takes place across European markets such as Germany, France, and the Nordics. **It is meant to be scheduled daily at 6PM Berlin time** but it can also be scheduled to run multiple times (e.g., 6 PM, 7 PM, 8 PM) to ensure redundancy in case of issues like bad connections. As of January 2025, EPEX provides data up to three days in the past, so the process can still work if not run on a given day. The system automatically detects whether an observation is already in the archive. This project uses Python's "selenium" for browser automation, "pandas" for data manipulation, and custom utilities for handling data downloads, plausibility checks, and cleaning.
 
 ## As of:
-
-- Last updated: **January 16, 2025, 14:57 Berlin time**
+- Last updated: **January 16, 2025, 14:58 Berlin time**
 
 ## Features
 
@@ -46,12 +45,11 @@ project-root/
 │  
 ├── power_data_architecture.py  
 ├── power_data_utils.py  
-└── main_script.py  
+└── power_data_main.py  
 
 ---
 
 ## Configuration
-
 ### General Settings
 Update the script with your local paths:
 
@@ -82,7 +80,6 @@ intraday_market_areas = {
 ---
 
 ## Usage
-
 ### Running the Script
 Ensure that all prerequisites are met and the configuration is updated.
 
@@ -105,11 +102,11 @@ Current Market Area, Auction, success information as well as execution times for
 ---
 
 ## Dependencies
--pandas (2.2.2 or later)  
--beautifulsoup4 (4.12.3 or later)  
--selenium (4.27.1 or later)  
+- pandas (2.2.2 or later)  
+- beautifulsoup4 (4.12.3 or later)  
+- selenium (4.27.1 or later)  
 
-Install dependencies with:  
+Install dependencies with the bash command:  
 pip install -r requirements.txt
 
 ---
