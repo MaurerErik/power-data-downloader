@@ -3,7 +3,7 @@
 This project automates the downloading, processing and archiving of dayahead and intraday power market data for various market areas from the EPEX (European Power Exchange, https://www.epexspot.com/en), the platform where power trading takes place across European markets such as Germany, France and the Nordics. **It is meant to be scheduled daily at 6PM Berlin time** but it can also be scheduled to run multiple times (e.g., 6 PM, 7 PM, 8 PM) to ensure redundancy in case of issues like bad connections. As of January 2025, EPEX provides data up to three days in the past, so the process can still work if not run on a given day. The system automatically detects whether an observation is already in the archive. This project uses Python's "selenium" for browser automation, "pandas" for data manipulation and custom utilities for handling data downloads, plausibility checks and cleaning.
 
 ## As of:
-- Last updated: **January 16, 2025, 14:58 Berlin time**
+- Last updated: **January 16, 2025, 15:07 Berlin time**
 
 ## Features
 
