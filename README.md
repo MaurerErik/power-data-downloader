@@ -4,7 +4,7 @@ This project automates the downloading, processing, and archiving of dayahead, i
 
 ## As of:
 
-- Last updated: **January 28, 2025, 19:00 Berlin time**, now includes continuous trading data as well as aggregated curves of dayahead and intraday segments
+- Last updated: **January 28, 2025, 19:08 Berlin time**, now includes continuous trading data as well as aggregated curves of dayahead and intraday segments
 - Previous update: January 16, 2025, 12:12 Berlin time
 
 ## Features
@@ -27,43 +27,43 @@ This project requires **Python 3.12 or higher**.
 The required Python packages are listed in "requirements.txt". Install them using: """bash pip install -r requirements.txt"""
 
 ### ChromeDriver
-The script uses Selenium WebDriver with ChromeDriver. Download the appropriate version of ChromeDriver for your system from the official website and update the path in the script:
+The script uses Selenium WebDriver with ChromeDriver. Download the appropriate version of ChromeDriver for your system from the official website and update the path in the script:  
 chrome_driver_filepath = r"<path_to_chromedriver>\chromedriver.exe"
 
 ---
 
 ## Example Directory Structure
-project-root/
-│
-├── AT/
-│   ├── epex_AT_aggregated_curves_dayahead_archive.csv
-│   ├── epex_AT_aggregated_curves_intraday_archive.csv
-│   ├── epex_AT_continuous_archive.csv
-│   ├── epex_AT_dayahead_base_peak_archive.csv
-│   ├── epex_AT_dayahead_hours_archive.csv
-│   ├── epex_AT_intraday_base_peak_archive.csv
-│   └── epex_AT_intraday_hours_archive.csv
-│
-├── BE/
-│   ├── epex_BE_aggregated_curves_dayahead_archive.csv
-│   ├── epex_BE_aggregated_curves_intraday_archive.csv
-│   ├── epex_BE_continuous_archive.csv
-│   ├── epex_BE_dayahead_base_peak_archive.csv
-│   ├── epex_BE_dayahead_hours_archive.csv
-│   ├── epex_BE_intraday_base_peak_archive.csv
-│   └── epex_BE_intraday_hours_archive.csv
-│
-. 
-. 
-.
-├── epex_aggregated_curves_tracking.csv
-├── epex_continuous_tracking.csv
-├── epex_dayahead_tracking.csv
-├── epex_intraday_tracking.csv
-│
-├── power_data_downloader_main.py
-├── power_data_downloader_architecture.py
-└── power_data_downloader_utils.py
+project-root/  
+│  
+├── AT/  
+│   ├── epex_AT_aggregated_curves_dayahead_archive.csv  
+│   ├── epex_AT_aggregated_curves_intraday_archive.csv  
+│   ├── epex_AT_continuous_archive.csv  
+│   ├── epex_AT_dayahead_base_peak_archive.csv  
+│   ├── epex_AT_dayahead_hours_archive.csv  
+│   ├── epex_AT_intraday_base_peak_archive.csv  
+│   └── epex_AT_intraday_hours_archive.csv  
+│  
+├── BE/  
+│   ├── epex_BE_aggregated_curves_dayahead_archive.csv  
+│   ├── epex_BE_aggregated_curves_intraday_archive.csv  
+│   ├── epex_BE_continuous_archive.csv  
+│   ├── epex_BE_dayahead_base_peak_archive.csv  
+│   ├── epex_BE_dayahead_hours_archive.csv  
+│   ├── epex_BE_intraday_base_peak_archive.csv  
+│   └── epex_BE_intraday_hours_archive.csv  
+│  
+.  
+.  
+.  
+├── epex_aggregated_curves_tracking.csv  
+├── epex_continuous_tracking.csv  
+├── epex_dayahead_tracking.csv  
+├── epex_intraday_tracking.csv  
+│  
+├── power_data_downloader_main.py  
+├── power_data_downloader_architecture.py  
+└── power_data_downloader_utils.py  
 
 ---
 
@@ -76,8 +76,8 @@ Update the script with your local paths:
 - **Chromedriver Path**: Replace `<path_to_chromedriver>` with the location of your ChromeDriver executable.
 - **Project Directory**: Replace `<path_to_project_directory>` with the root directory where you want to store the tracking files. In this location, market area specific folders will be created. In these, market area specific data will be stored in archive CSV files.
 
-Example:
-chrome_driver_filepath = r"C:/Users/YourName/Downloads/chromedriver.exe"
+Example:  
+chrome_driver_filepath = r"C:/Users/YourName/Downloads/chromedriver.exe"  
 root = r"C:/Users/YourName/Projects/PowerDataDownloader/"
 
 ### Backoff Time
@@ -137,9 +137,9 @@ Current Market Area, Auction, success information as well as execution times for
 
 ## Dependencies
 
--pandas (1.3.5 or later)
--beautifulsoup4 (4.10.0 or later)
--selenium (4.1.0 or later)
+-pandas (1.3.5 or later)  
+-beautifulsoup4 (4.10.0 or later)  
+-selenium (4.1.0 or later)  
 
 Install dependencies with:
 
@@ -149,5 +149,5 @@ pip install -r requirements.txt
 
 ## Additional Notes
 
--Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM, and 8 PM Berlin time adds redundancy in case of network issues.
+-Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM, and 8 PM Berlin time adds redundancy in case of network issues.  
 -Data Archiving: The project automatically detects previously downloaded data to prevent duplication in archives. It also automatically detects previously failed download or data processing attempts and retries to download these cases in case it is run again. 
