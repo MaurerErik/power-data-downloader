@@ -363,6 +363,7 @@ def download(type:str,
                                 id_full_indicator = False
                                 id_1_indicator = False
                                 id_3_indicator = False
+                                rpd_indicator = False
 
                                 for header_item in headers:
                                     if ("id" in str(header_item).lower()) and ("full" in str(header_item).lower()):
@@ -371,6 +372,9 @@ def download(type:str,
                                         id_1_indicator = True
                                     if ("id" in str(header_item).lower()) and ("3" in str(header_item).lower()):
                                         id_3_indicator = True
+                                    if ("rpd" in str(header_item).lower()):
+                                        rpd_indicator = True
+                                        
                                 try:
                                     data_list = []
 
@@ -385,11 +389,11 @@ def download(type:str,
                                                 # Need None for ID Full
                                                 row_clean.append(None)
                                                 row_counter += 1
-                                            if ((id_1_indicator is False) and (row_counter==11)):
+                                            if ((id_1_indicator is False and rpd_indicator is False) and (row_counter==11)):
                                                 # Needs None for ID1
                                                 row_clean.append(None)
                                                 row_counter += 1
-                                            if ((id_3_indicator is False) and (row_counter==12)):
+                                            if ((id_3_indicator is False and rpd_indicator is False) and (row_counter==12)):
                                                 # Needs None for ID3
                                                 row_clean.append(None)
                                                 row_counter += 1                                        

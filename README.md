@@ -4,8 +4,8 @@ This project automates the downloading, processing, and archiving of dayahead, i
 
 ## As of:
 
-- Last updated: **January 28, 2025, 19:08 Berlin time**, now includes continuous trading data as well as aggregated curves of dayahead and intraday segments
-- Previous update: January 16, 2025, 12:12 Berlin time
+- Last updated: **January 30, 2025, 11:12 Berlin time**, updated continuous trading data collection for the Great Britain market area  
+- Previous update: January 28, 2025, 19:08 Berlin time, now includes continuous trading data as well as aggregated curves of dayahead and intraday segments
 
 ## Features
 
