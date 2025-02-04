@@ -21,7 +21,7 @@ This tool automates the downloading, processing and archiving of dayahead, intra
 ## Prerequisites
 
 ### Python Version
-This project requires **Python 3.12 or higher**.
+This tool requires **Python 3.12 or higher**.
 
 ### Libraries and Dependencies
 The required Python packages are listed in "requirements.txt". Install them using: """bash pip install -r requirements.txt"""
@@ -150,4 +150,4 @@ pip install -r requirements.txt
 ## Additional Notes
 
 -Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM and 8 PM Berlin time adds redundancy in case of network issues.  
--Data Archiving: The project automatically detects previously downloaded data to prevent duplication in archives. It also automatically detects previously failed download or data processing attempts and retries to download these cases in case it is run again. 
+-Data Archiving: The tool automatically detects previously downloaded data to prevent duplication in archives. It also automatically detects previously failed download or data processing attempts and retries to download these cases in case it is run again. 
