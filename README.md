@@ -1,11 +1,11 @@
 # Power Data Downloader
 
-This project automates the downloading, processing, and archiving of dayahead, intraday and continuous trading power market data for all market areas from the EPEX (European Power Exchange, https://www.epexspot.com/en), the platform where power trading takes place across European markets such as Germany, France, and the Nordics. **It is meant to be scheduled daily at 6PM Berlin time** but it can also be scheduled to run multiple times (e.g., 6 PM, 7 PM, 8 PM) to ensure redundancy in case of issues like bad connections. As of January 2025, EPEX provides data up to three days in the past, so the process can still work if not run on a given day. The system automatically detects whether an observation is already in the archive. This project uses Python's "selenium" for browser automation, "pandas" for data manipulation and custom utilities for handling data downloads, plausibility checks and cleaning.
+This tool automates the downloading, processing and archiving of dayahead, intraday and continuous trading power market data for all market areas from the EPEX (European Power Exchange, https://www.epexspot.com/en), the platform where power trading takes place across European markets such as Germany, France and the Nordics. **It is meant to be scheduled daily at 6PM Berlin time** but to ensure redundancy in case of issues like bad connections it can also be scheduled to run multiple times (e.g., 6 PM, 7 PM, 8 PM). As of January 2025, EPEX provides data up to three days in the past, so the process can still work if a scheduled run was aborted on a given day. The system automatically detects whether an observation is missing in the archive or whether the record already exists. The tool uses Python's "selenium" for browser automation, "beautifulsoup" for efficiently navigating the html content, "pandas" for data manipulation and custom utilities for handling data downloads, plausibility checks and cleaning.
 
 ## As of:
 
-- Last updated: **January 30, 2025, 11:12 Berlin time**, updated continuous trading data collection for the Great Britain market area  
-- Previous update: January 28, 2025, 19:08 Berlin time, now includes continuous trading data as well as aggregated curves of dayahead and intraday segments
+- Last updated: **February 4, 2025, 19:47 Berlin time**, accessing the EPEX website now works headless which is useful for environments without a graphical interface like servers or cloud-based virtual machines, some options to improve stability in resource-constrained environments were added  
+- Previous update: January 30, 2025, 11:12 Berlin time, updated continuous trading data collection for the Great Britain market area
 
 ## Features
 
@@ -86,7 +86,7 @@ Backoff Time: Adjust the backoff time (in seconds) for downloads:
 backoff_time = 3
 
 ### Market Areas
-The script supports multiple market areas for dayahead and intraday auctions as well as continuous trading segments. These areas and modalities are defined in dictionaries:
+The tool supports multiple market areas for dayahead and intraday auctions as well as the continuous trading segments. These areas and modalities are defined in dictionaries in the power_data_downloader_main.py script:
 
 Dayahead Market Areas:
 dayahead_market_areas = {
@@ -149,5 +149,5 @@ pip install -r requirements.txt
 
 ## Additional Notes
 
--Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM, and 8 PM Berlin time adds redundancy in case of network issues.  
+-Redundancy: Running the script multiple times can help prevent data loss due to failed attempts. For example, scheduling the script at 6 PM, 7 PM and 8 PM Berlin time adds redundancy in case of network issues.  
 -Data Archiving: The project automatically detects previously downloaded data to prevent duplication in archives. It also automatically detects previously failed download or data processing attempts and retries to download these cases in case it is run again. 

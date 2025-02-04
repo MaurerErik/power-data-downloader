@@ -125,9 +125,13 @@ def extract_soup(chrome_driver_path:str, url:str) -> bs4.BeautifulSoup:
     """
     Extracts the HTML content of a webpage as a BeautifulSoup object using the Selenium WebDriver.
 
-    This function uses Selenium to open a given URL in a Chrome browser, retrieves the page source, 
-    and converts it into a BeautifulSoup object for further web scraping or parsing. It then closes 
-    the browser and returns the parsed HTML content as a BeautifulSoup object.
+    This function uses Selenium to open a given URL in a Chrome browser running in headless mode, 
+    retrieves the page source, and converts it into a BeautifulSoup object for further web scraping or parsing. 
+    It then closes the browser and returns the parsed HTML content as a BeautifulSoup object.
+
+    The function is configured to run in headless mode, meaning it does not open a visible browser window. 
+    This is useful for automated scripts and environments without a graphical interface. Additionally, 
+    it includes options to improve stability in resource-constrained environments.
 
     Parameters:
     chrome_driver_path (str): The file path to the Chrome WebDriver executable.
@@ -141,9 +145,14 @@ def extract_soup(chrome_driver_path:str, url:str) -> bs4.BeautifulSoup:
     print(soup.prettify())
     """
 
-    # Initialize WebDriver
+    # Initialize ChromeOptions
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("--headless")  # Run in headless mode
+    options.add_argument("--no-sandbox")  # Required for some environments
+    options.add_argument("--disable-dev-shm-usage")  # Prevent crashes in limited memory environments
+
+    # Initialize WebDriver
     service = Service(chrome_driver_path)
     driver = webdriver.Chrome(service=service, options=options)
 
@@ -170,6 +179,10 @@ def extract_soup_aggregated_curves(chromedriver_path:str, url:str) -> bs4.Beauti
     page source, and converts it into a BeautifulSoup object for further web scraping or parsing. 
     It then closes the browser and returns the parsed HTML content as a BeautifulSoup object.
 
+    The function is configured to run in headless mode, meaning it does not open a visible browser window. 
+    This is useful for automated scripts and environments without a graphical interface. Additionally, 
+    it includes options to improve stability in resource-constrained environments.
+
     Parameters:
     chromedriver_path (str): The file path to the Chrome WebDriver executable.
     url (str): The URL of the webpage to extract the content from.
@@ -182,9 +195,14 @@ def extract_soup_aggregated_curves(chromedriver_path:str, url:str) -> bs4.Beauti
     print(soup.prettify())
     """
 
-    # Initialize WebDriver
+    # Initialize ChromeOptions
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    options.add_argument("--headless")  # Run in headless mode
+    options.add_argument("--no-sandbox")  # Required for some environments
+    options.add_argument("--disable-dev-shm-usage")  # Prevent crashes in limited memory environments
+
+    # Initialize WebDriver
     service = Service(chromedriver_path)
     driver = webdriver.Chrome(service=service, options=options)
     

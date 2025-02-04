@@ -473,7 +473,7 @@ def download(type:str,
                                                 current_entry[2] = date_object
                                                 
                                                 data_list.append(current_entry)
-                                except:
+                                except Exception as e:
                                     data_list = None
                                     success_indicator = "Error"
                                     print(e)
